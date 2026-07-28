@@ -15,8 +15,6 @@ export async function getUserById(id) {
 
 export async function addSessionToUser(sessionId, userId) {
     try {
-        console.log(userId);
-        
         const user = await db.collection("users").updateOne(
             { _id: new ObjectId(userId) },
             { $push: { labSessionsIds: sessionId } }
