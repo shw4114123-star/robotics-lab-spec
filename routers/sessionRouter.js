@@ -1,6 +1,6 @@
 import express from "express";
 
-import { createSession, getAll } from "../controllers/session.js";
+import { createSession, getAll } from "../controllers/sessionControler.js";
 
 const router = express.Router()
 
