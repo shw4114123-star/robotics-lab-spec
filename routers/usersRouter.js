@@ -1,22 +1,11 @@
 import express from "express";
-import { createUser, getUserById } from "../DAL/usersRepository.js";
+
+import {createUsers, getById} from "../controllers/usersControler.js"
 
 const router = express.Router()
 
-router.post("/", async (req, res) => {
-    try {
-        const body = req.body
-        const user = await createUser(body)
-        res.status(201).json({ "id": user })
-    } catch (error) {
-        console.error(error);
-    }
-})
+router.post("/", createUsers)
 
-router.get("/:userId", async (req, res) => {
-    const { userId } = req.params
-    const user = await getUserById(userId)
-    res.json(user)
-})
+router.get("/:userId", getById)
 
 export default router
